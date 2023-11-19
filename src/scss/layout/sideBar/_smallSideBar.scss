@@ -1,0 +1,35 @@
+@use '../../abstracts' as *;
+
+.small_sidebar{
+  width: 80px;
+  padding-right: 0;
+  border-top: 1px solid rgba(90, 90, 90, .55);
+
+  .small_sidebar_container{
+    a{
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+      @include center;
+      &:hover{
+        background-color: $bg-color-hover;
+      }
+
+      .sidebar_icon_container{
+        @include center;
+        flex-direction: column;
+        &:hover{
+          background: none;
+        }
+
+        .sidebar_icon{
+          margin-bottom: .75rem;
+        }
+
+        .sidebar_text{
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
