@@ -9,6 +9,7 @@ import formatTimeVideo from '../../helpers/formatTimeVideo';
 
 const VideoCard = ({id,video,img,info,eInfo,channelInfo}) => {
   dayjs.extend(relativeTime)
+  //dayjs의 라이브러리 중 fromNow()를 이용하기 위해서는 relativeTime을 extend 해준다
   const time=dayjs(info.publishedAt).fromNow()
   const views=formatViews(eInfo.viewCount)
   const duration=formatTimeVideo(eInfo.duration)

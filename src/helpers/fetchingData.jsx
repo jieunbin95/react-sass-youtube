@@ -19,10 +19,11 @@ export const getVideoInfo=async(videoArr)=>{
       )
 
       const channel= await axios.get(`/channels?part=snippet&part=statistics&part=contentDetails&id=${video.snippet.channelId}`)
+
       const channelInfo=Object.assign(
         {},
         channel?.data?.items[0]?.snippet,
-        channel.data.items[0].statistics
+        channel?.data?.items[0]?.statistics
       )
       video.channelInfo=channelInfo
     }
@@ -38,7 +39,7 @@ export const getVideoInfo=async(videoArr)=>{
 export const getRelatedVideos = async (videoId) => {
   try {
     const response = await axios.get(
-      `/search?part=snippet&maxResults=10&relatedToVideoId=${videoId}&type=video`
+      `/search?part=snippet&maxResults=10&relatedId=${videoId}&type=video`
     )
     return response.data.items
     

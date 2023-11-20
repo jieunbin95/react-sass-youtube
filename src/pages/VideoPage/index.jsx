@@ -37,7 +37,6 @@ const VideoPage = () => {
     setIsToggled(false)
     const response=await axios.get(`/commentThreads?part=snippet&videoId=${videoId}`)
     setVideoComments(response.data.items)
-    console.log('코멘트',response.data.items)
   },[videoId,setIsToggled])
 
   useEffect(()=>{

@@ -7,8 +7,10 @@ const formatTimeVideo=str=>{
   let duration=''
   for(let i=0; i<time.length; i++){
     if(!Number(time[i])){
+      //0이거나 텍스트인 경우
       duration += ':'
     } else if(i>0 && !Number(time[i-1]) && !Number(time[i+1])){
+      //0보다 크고 앞,뒤에 0또는 텍스트가 있는경우
       duration += '0' + time[i]
     } else {
       duration += time[i]
@@ -18,6 +20,7 @@ const formatTimeVideo=str=>{
   if (time.indexOf('H') === -1 
   && time.indexOf('M') === -1 
   && time.endsWith('S')){
+    //'H'와 'M'이 없고 's가 있는경우
     const [min]=duration.slice(0,-1)
 
     return `00:${min}`

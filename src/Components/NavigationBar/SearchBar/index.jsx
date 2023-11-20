@@ -8,13 +8,13 @@ import { SearchContext } from '../../../context/SearchContext';
 
 const SearchBar = ({handleChange,handleSubmit}) => {
   const {width}=useWindowSize()
-  const {setShowSpecialSearchBar}=useContext(SearchContext)
+  const {searchQuery,setShowSpecialSearchBar}=useContext(SearchContext)
 
   return (
     <div className={`SearchBar ${width<=640 ? 'smallSearch':''}`}>
       {width > 640 ? (
         <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} type='text' name='search' placeholder='Search'/>
+        <input value={searchQuery.input} onChange={handleChange} type='text' name='search' placeholder='Search'/>
         <button type='submit'>
           <ImSearch size={20}/>
         </button>

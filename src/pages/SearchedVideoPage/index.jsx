@@ -10,7 +10,6 @@ const SearchedVideoPage = () => {
   const loadVideoInfo=useCallback(async() => {
     const videos=await getVideoInfo(searchQuery.videos)
     setSearchVideos(videos)
-    console.log('비디오는',searchedVideos)
   },[searchQuery.videos])
 
   useEffect(()=>{
@@ -20,7 +19,7 @@ const SearchedVideoPage = () => {
   const searchVideoMarkup=searchedVideos?.map(
     item => (
     <VideoCard
-        key={item.id}
+        key={item.id.videoId}
         id={item.id.videoId}
         video={item}
         img={item.snippet.thumbnails.medium.url}
